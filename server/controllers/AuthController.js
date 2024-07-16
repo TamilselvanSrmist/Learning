@@ -1,4 +1,5 @@
 const User = require('../models/UserModel');
+const sendToken = require('../utils/jwt');
 
 exports.registerCredentials = async (req,res,next) => {
     const {name,initial,lastName,email,password,role,registerNo} = req.body;
@@ -90,10 +91,11 @@ exports.loginUser = async (req,res,next) => {
             message:"Incorrec password",
         })
     }
-
-    return res.status(201).json({
-        success:true,
-        message:"User loggedin successfully",
-        user
-    })
+    console.log("user loggedin successfully");
+    sendToken(user,201,res);
+    // return res.status(201).json({
+    //     success:true,
+    //     message:"User loggedin successfully",
+    //     user
+    // })
 }

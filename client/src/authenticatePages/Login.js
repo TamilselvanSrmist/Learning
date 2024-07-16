@@ -10,7 +10,7 @@ export const Login = () => {
   const navigate = useNavigate();
 
   const initialError = {
-    email: { required: false },
+    registerNo: { required: false },
     password: { required: false },
     customError: null
   }
@@ -19,7 +19,7 @@ export const Login = () => {
 
   const [errors, Seterror] = useState(initialError);
   const [input, Setinput] = useState({
-    email: "",
+    registerNo: "",
     password: ""
   });
 
@@ -37,8 +37,8 @@ export const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     let errors = initialError;
-    if (input.email === '') {
-      errors.email.required = true;
+    if (input.registerNo === '') {
+      errors.registerNo.required = true;
       hasError = true;
     }
     if (input.password === '') {
@@ -46,11 +46,11 @@ export const Login = () => {
       hasError = true;
     }
     console.log("form submitted");
-    // if (!hasError) {
-    //   try {
-    //     const loginResponse = await axios.post('http://localhost:5000/api/workshop/user/login1', input, {
-    //       withCredentials: true
-    //     });
+    if (!hasError) {
+      try {
+        const loginResponse = await axios.post('http://localhost:5000/api/erp/user/login', input, {
+          withCredentials: true
+        });
 
     //     console.log("cookie response");
     //     console.log(loginResponse.data.user);
@@ -60,7 +60,7 @@ export const Login = () => {
     //     setIsAuthenticated(true);
     //     setUserData('user');
 
-    //     message.success('User logged in successfully!');
+        message.success('User logged in successfully!');
     //     if (loginResponse.data.user.role === 'admin') {
     //       return navigate('/dashboard');
     //     }
@@ -70,12 +70,12 @@ export const Login = () => {
     //     console.log("hello");
 
 
-    //   } catch (err) {
-    //     console.log(err);
-    //     let respon = err.response.data.message;
-    //     message.error(respon);
-    //   }
-    // }
+      } catch (err) {
+        console.log(err);
+        // let respon = err.response.data.message;
+        // message.error(respon);
+      }
+    }
 
 
 
@@ -93,7 +93,7 @@ export const Login = () => {
 
   const handleReset = () => {
     Setinput({
-      email: "",
+      registerNo: "",
       password: ""
     });
     Seterror(initialError);
@@ -111,7 +111,7 @@ export const Login = () => {
         <form className="flex flex-col" onSubmit={handleSubmit}>
           <h1 className="text-center font-bold text-blue-950 font-content-font text-3xl  mb-6 mt-5">Login</h1>
           <Input className="mb-5 bg-gray-200" onChange={handleChange}
-            placeholder="Register Number" name="email"
+            placeholder="Register Number" name="registerNo"
             prefix={<UserOutlined className="site-form-item-icon" />}
             suffix={
               <Tooltip title="Extra information">
@@ -123,7 +123,7 @@ export const Login = () => {
               </Tooltip>
             }
           />
-          {errors.email.required ? (
+          {errors.registerNo.required ? (
             <span className="text-red-500">Register Number is  required!</span>) : null}
           <Input className="mb-5 bg-gray-200" type="password" onChange={handleChange}
             placeholder="password" name="password"
