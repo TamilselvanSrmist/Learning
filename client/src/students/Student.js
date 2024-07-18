@@ -24,7 +24,7 @@ export const Student = () => {
       const onChange = (key) => {
         console.log(key);
       };
-    return <section className='flex justify-center'>
+    return <section >
         <Tabs defaultActiveKey="1" items={items} onChange={onChange} />
     </section>
 }

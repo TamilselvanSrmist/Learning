@@ -63,7 +63,7 @@ export const BulkRegister = () => {
   };
 
   return (
-    <div>
+    <div className='bg-white p-10 rounded-lg h-screen'>
       <div style={{ display: 'flex', justifyContent: 'center', textAlign: 'center', marginTop: '50px' }}>
         <h1>Upload a CSV File which consists of user details</h1>
       </div>

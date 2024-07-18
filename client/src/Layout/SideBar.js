@@ -23,13 +23,13 @@ export const SiderBar = ({collapsed,onCollapse}) => {
             minHeight: '100vh',
             transition: 'all 0.2s',
           }}>
-        <div className="flex h-10 m-4 bg-gray-200" >
-           
+        <div className="flex h-10 m-4 bg-gray-200 rounded-lg text-center" >
+           {/* <h1 className='px-16 py-2'>ERP</h1> */}
             </div>
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={['1']}
+          defaultSelectedKeys={['home/admin/dashboard']}
           items={[
             {
               key: 'home/admin/dashboard',

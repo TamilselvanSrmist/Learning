@@ -4,7 +4,7 @@ const {Content} = Layout;
 export const ContentPage = () => {
 
     return (
-        <Content className="h-screen ">
+        <Content className="h-screen m-10  ">
         <AppRoutes />
         </Content>
     )
